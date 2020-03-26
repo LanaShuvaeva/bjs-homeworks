@@ -1,3 +1,5 @@
+"use strict"
+
 function getResult(a,b,c) {    
     const d = b ** 2 - 4 * a * c;   
      
@@ -20,8 +22,25 @@ function getResult(a,b,c) {    
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    // return averageMark;
+    let averageMark = 0;
+    let sumMarks = 0;
+
+    if (!marks.length) {
+        console.log("0 marks");
+    } else {
+        console.log("More than 5 marks");
+        let newMarks = marks.slice(0, 5);
+
+        for (let i in newMarks) {
+            if (i) {
+            sumMarks += newMarks[i];
+            averageMark = sumMarks / newMarks.length;
+            console.log(newMarks.length);
+            }
+        }
+      }
+
+    return averageMark;
 }
 
 function askDrink(name,dateOfBirthday){
