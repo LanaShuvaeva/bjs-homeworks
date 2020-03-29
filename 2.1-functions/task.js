@@ -43,22 +43,40 @@ function showSolutionsMessage(a, b, c) {
 
 // Task #2
 
+function getAverageScore(data) {
+    let avScore = new Object();
+    for (let key in data) {
+        let avg = (data[key].reduce((previous, current) => current += previous)) / data[key].length;
+        avScore[key] = avg;
+    }
+        avScore.average = function () {
+            let avg = 0;
+            for (let key in avScore) {
+                avg += avScore[key];
+            }
+            return avg;
+        }; 
+      
+    
+    console.log(avScore);
 
-function getSolutions(a, b, c) {
-    const d = b ** 2 - 4 * a * c;
-    let x1, x2;
-    if (d < 0) {
-        return `{ D: ${d}, roots: []}`;
-    } else if (d === 0) {
-        x1 = -1 * b / (2 * a);
-        return `{ D: ${d}, roots: [${x1}]}`;
-    } else {
-        x1 = ((-1 * b + Math.sqrt(d)) / (2 * a));
-        x2 = ((-1 * b - Math.sqrt(d)) / (2 * a));
-        return `{ D: ${d}, roots: [x1: ${x1}, x2 ${x2}]}`;
-    }
-    return {
-        D: d,
-        roots: x1, x2;
-    }
+    return data;
 }
+
+function getAverageMark(marks) {
+
+}
+
+// avScore.average();
+console.log(getAverageScore({
+    algebra: [2, 4, 5, 2, 3, 4],
+    geometry: [2, 4, 5],
+    russian: [3, 3, 4, 5],
+    physics: [5, 5],
+    music: [2, 2, 6],
+    english: [4, 4, 3],
+    poetry: [5, 3, 4],
+    chemistry: [2],
+    french: [4, 4]
+}));
+
