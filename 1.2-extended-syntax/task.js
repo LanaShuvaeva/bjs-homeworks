@@ -28,9 +28,8 @@ function getAverageMark(marks) {
     } else {
         console.log("More than 5 marks");
         let newMarks = marks.slice(0, 5);
-
-        for (let i in newMarks) {
-            sumMarks += newMarks[i];
+        for (let mark of newMarks) {
+            sumMarks += mark;
             console.log(newMarks.length);
         }
         averageMark = sumMarks / newMarks.length;
@@ -40,15 +39,9 @@ function getAverageMark(marks) {
 }
 
 function askDrink(name,dateOfBirthday) {
-    const dateToday = new Date;
-    const age = dateToday.getFullYear() - dateOfBirthday.getFullYear();
-    let result = "";
-
-    if (age >= 18) {
-        result = `Не желаете ли олд-фэшн, ${name}?`
+    if(new Date().getFullYear() - dateOfBirthday.getFullYear() >= 18) {
+        return`Не желаете ли олд-фэшн, ${name}?`
     } else {
-        result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`
+        return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`
     }
-
-    return result;
 }
