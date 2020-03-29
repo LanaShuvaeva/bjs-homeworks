@@ -42,21 +42,13 @@ function showSolutionsMessage(a, b, c) {
 
 
 // Task #2
+let avScore = new Object();
 
 function getAverageScore(data) {
-    let avScore = new Object();
     for (let key in data) {
         let avg = (data[key].reduce((previous, current) => current += previous)) / data[key].length;
         avScore[key] = avg;
-    }
-        avScore.average = function () {
-            let avg = 0;
-            for (let key in avScore) {
-                avg += avScore[key];
-            }
-            return avg;
-        }; 
-      
+    }      
     
     console.log(avScore);
 
@@ -64,10 +56,17 @@ function getAverageScore(data) {
 }
 
 function getAverageMark(marks) {
-
+    avScore.average = function () {
+        let avg = 0;
+        for (let key in avScore) {
+            avg += avScore[key];
+        }
+        return avg;
+    }; 
+    avScore.average();
 }
 
-// avScore.average();
+getAverageMark(Object.values(avScore));
 console.log(getAverageScore({
     algebra: [2, 4, 5, 2, 3, 4],
     geometry: [2, 4, 5],
