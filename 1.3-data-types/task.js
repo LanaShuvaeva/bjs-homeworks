@@ -1,11 +1,16 @@
 "use strict"
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
-        const arr = Object.values(arguments).slice(0, 3);
-        console.log(arr);
-        if(arr.some(isNaN)) {
-            return alert(`One of the parameters is not a number. Please try again.`);
-        } else {
+        if (isNaN(percent)) {
+            return "Не правильное значение percent"
+        }
+        if (isNaN(contribution)) {
+            return "Не правильное значение contribution"
+        }
+        if (isNaN(amount)) {
+            return "Не правильное значение amount"
+        }
+
             const loan = amount - contribution;
             const today = new Date();
 
@@ -24,7 +29,6 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
             console.log(totalAmount);
 
             return Number(totalAmount);
-        }
 }  
 
 function getGreeting(name) {
