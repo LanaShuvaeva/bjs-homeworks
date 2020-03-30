@@ -49,24 +49,22 @@ function getAverageScore(data) {
         let avg = (data[key].reduce((previous, current) => current += previous)) / data[key].length;
         avScore[key] = avg;
     }      
+ 
+    let arr = Object.values(avScore);
+
+    function getAverageMark(marks) {
     
-    console.log(avScore);
-
-    return data;
-}
-
-function getAverageMark(marks) {
-    avScore.average = function () {
-        let avg = 0;
-        for (let key in avScore) {
-            avg += avScore[key];
-        }
-        return avg;
+        for (let key in marks) {
+            let avg = (marks.reduce((previous, current) => current += previous)) / marks.length;
+            avScore.average = avg;
+        }   
     }; 
-    avScore.average();
+
+    getAverageMark(arr);
+
+    return avScore;
 }
 
-getAverageMark(Object.values(avScore));
 console.log(getAverageScore({
     algebra: [2, 4, 5, 2, 3, 4],
     geometry: [2, 4, 5],
