@@ -1,11 +1,17 @@
+// "use strict"
+
 function getAnimalSound(animal) {
-    // код для задачи №1 писать здесь
-    // return animalSound;
+    this.sound = animal.sound;
+    if (animal === undefined) {
+        return null;
+    } 
+    return sound;
 }
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark
+    const average = (marks.map((num) => parseInt(num)).reduce((a, b) => a + b)) / marks.length;
+    const roundedAverage = Math.round(average);
+    return roundedAverage;
 }
 
 function checkBirthday(birthday) {
