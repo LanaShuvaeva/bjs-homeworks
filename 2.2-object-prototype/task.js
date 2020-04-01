@@ -16,18 +16,16 @@ function getAverageMark(marks) {
 
 function checkBirthday(birthday) {
     const now = Date.now();
-    new Date();
-    // this.birthday = Math.round(birthday.getTime()/1000);
     const arr = birthday.split("-").map((num) => parseInt(num));
-    const year = arr[0];
-    const month = arr[1];
-    const day = arr[2];
-    this.birthday = new Date(Date.UTC(year, month-1, day));
-    const diff = now - birthday;
+    this.birthday = Math.round(new Date(Date.UTC(arr[0], arr[1]-1, arr[2])).getTime());
+    
+    const diff = now - this.birthday;
 
-    console.log(birthday);
-    console.log(now);
-    console.log(Math.round(this.birthday.getTime()));
-    this.birthday;
-    // return verdict
+    const age = Math.floor((diff/86400000) / 365.25);
+    console.log(age);
+
+    if (age >= 18) {
+        return true;
+    } 
+        return false;
 }
