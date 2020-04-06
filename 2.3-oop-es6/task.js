@@ -51,6 +51,7 @@ const superStick = new ImprovedWeapon('Посох Бури', 'Посох', 10, s
 class StudentLog {
     constructor (name) {
         this.name = name;
+        this.subjects = new Object();
     }
 
     getName() {
@@ -58,25 +59,47 @@ class StudentLog {
     }
 
     addGrade(grade, subject) {
-        this.subject.push(grade);
-       console.log();
-
-        // this.geometry = [];
-
-        if (grade >= 1 && grade <= 5) {
-            // this.subject.push(grade);
-            // console.log(this.algebra);
-        } else {
-            console.log(`Вы пытались поставить оценку ${grade}" по предмету "${subject}". Допускаются только числа от 1 до 5.`)
+        this.subjects[subject] === undefined ? this.subjects[subject] = [] : 0;
+        if (grade < 1 || grade > 5 || !Number.isInteger(grade)) {
+            console.log(`Вы пытались поставить оценку ${grade}" по предмету "${subject}". Допускаются только числа от 1 до 5.`);
+            return 0;
         }
+        this.subjects[subject].push(grade);
 
-        return this.algebra;
+        return this.subjects[subject].length;
+    }  
+
+    getAverageBySubject(subject) {
+        let sum = 0;
+        if (this.subjects[subject] === undefined) {
+            return 0;
+        }
+        for (let mark of this.subjects[subject]) {
+            sum += mark;
+        }
+        return sum / this.subjects[subject].length;
+    }
+
+    getTotalAverage() {
+        let sum = 0;
+        for (let subject in this.subjects) {
+            let subjectAverage = this.getAverageBySubject(subject);
+            sum += subjectAverage;
+        }
+        return sum / Object.keys(this.subjects).length;
     }
 }
 
+
 const log = new StudentLog('Олег Никифоров');
 
-console.log(log.getName());
+
 log.addGrade(2, 'algebra');
-log.addGrade(5, 'algebra');
+log.addGrade(4, 'algebra');
+log.addGrade(5, 'geometry');
+log.addGrade(4, 'geometry');
+
+console.log(log.getTotalAverage()); // 3,75
+
+
 console.log(log);
