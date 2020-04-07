@@ -1,6 +1,6 @@
 "use strict"
 
-// Task #1 & 2
+// Task #1
 class Weapon {
     constructor(name, attack, durability, range) {
         this.name = name;
@@ -33,21 +33,78 @@ class ImprovedWeapon extends Weapon {
     }
 }
 
+// const arm = new Weapon('Рука', 1, Infinity, 1);
+// const bow = new Weapon('Лук', 10, 200, 3);
+// const sword = new Weapon('Меч', 25, 500, 1);
+// const knife = new Weapon('Нож', 5, 300, 1);
+// const stick = new Weapon('Посох', 8, 300, 2);
 
-const arm = new Weapon('Рука', 1, Infinity, 1);
-const bow = new Weapon('Лук', 10, 200, 3);
-const sword = new Weapon('Меч', 25, 500, 1);
-const knife = new Weapon('Нож', 5, 300, 1);
-const stick = new Weapon('Посох', 8, 300, 2);
+// const longBow = new ImprovedWeapon('Длинный лук', 15, bow.durability, 4);
+// const poleAxe = new ImprovedWeapon('Секира', 27, 800, sword.range);
+// const superStick = new ImprovedWeapon('Посох Бури', 10, stick.durability, 3);
 
-const longBow = new ImprovedWeapon('Длинный лук', 'Лук', 15, bow.durability, 4);
-const poleAxe = new ImprovedWeapon('Секира', 'Меч', 27, 800, sword.range);
-const superStick = new ImprovedWeapon('Посох Бури', 'Посох', 10, stick.durability, 3);
 
+// Task #2
+ class Arm extends Weapon {
+     constructor(name, attack, durability, range) {
+         super (name, attack, durability, range);
+     }
+ }
+
+ class Bow extends Weapon {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+} 
+
+class Sword extends Weapon {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+}
+
+class Knife extends Weapon {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+}
+
+class Stick extends Weapon {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+}
+
+class LongBow extends Bow {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+} 
+
+class PoleAxe extends Sword {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+} 
+
+class SuperStick extends Stick {
+    constructor(name, attack, durability, range) {
+        super (name, attack, durability, range);
+    }
+} 
+
+ const arm = new Arm('Рука', 1, Infinity, 1);
+ const bow = new Bow('Лук', 10, 200, 3);
+ const sword = new Sword('Меч', 25, 500, 1);
+ const knife = new Knife('Нож', 5, 300, 1);
+ const stick = new Stick('Посох', 8, 300, 2);
+ 
+ const longBow = new LongBow('Длинный лук', 15, bow.durability, 4);
+ const poleAxe = new PoleAxe('Секира', 27, 800, sword.range);
+ const superStick = new Stick('Посох Бури', 10, stick.durability, 3);
 
 
 // Task #3
-
 class StudentLog {
     constructor (name) {
         this.name = name;
@@ -99,7 +156,5 @@ log.addGrade(4, 'algebra');
 log.addGrade(5, 'geometry');
 log.addGrade(4, 'geometry');
 
-console.log(log.getTotalAverage()); // 3,75
-
-
-console.log(log);
+// console.log(log.getTotalAverage()); // 3,75
+// console.log(log);
