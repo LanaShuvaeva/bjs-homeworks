@@ -13,9 +13,9 @@ function getAverageMark(marks) {
 function checkBirthday(birthday) {
     const now = Date.now();
     const arr = birthday.split("-").map((num) => parseInt(num));
-    this.birthday = Math.round(new Date(Date.UTC(arr[0], arr[1]-1, arr[2])).getTime());
+    const rawBirthday = Math.round(new Date(Date.UTC(arr[0], arr[1]-1, arr[2])).getTime());
     
-    const diff = now - this.birthday;
+    const diff = now - rawBirthday;
     const age = Math.floor((diff/86400000) / 365.25);
 
     return age >= 18;
