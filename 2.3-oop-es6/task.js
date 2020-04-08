@@ -17,7 +17,7 @@ class Weapon {
     getDamage() {
         return this.durability >= this.durabilityStart * 0.3 ? this.attack
                : this.durability === 0 ? this.attack = 0
-               : this.attack /= 2;
+               : this.attack / 2;
     }
 
     isBroken() {
