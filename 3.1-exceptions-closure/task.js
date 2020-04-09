@@ -41,15 +41,21 @@ class Triangle {
     }
 }
 
-function getTriangle (a, b, c) {
-    const triangleNew = new Triangle(a, b, c);
-    
-    try {
-      return triangleNew;
-    } catch (e) {  
-        return e;
-    } finally {
-        return triangleNew;
+const showError = {
+    getArea() {
+        return  "Ошибка! Неправильный треугольник";
+    },
+
+    getPerimeter() {
+        return "Ошибка! Неправильный треугольник";
     }
+    
 }
 
+function getTriangle (a, b, c) {
+    try {
+      return new Triangle(a, b, c);
+    } catch (e) {  
+      return showError;
+    } 
+}
