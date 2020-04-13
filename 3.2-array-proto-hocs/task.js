@@ -8,7 +8,7 @@ function sleep(milliseconds)
 
 function sum(...args) {
     // Замедление на половину секунды.
-    sleep(500); 
+    // sleep(500); 
     return args.reduce((sum, arg) => {
       return sum += +arg;
     }, 0);
@@ -57,7 +57,6 @@ testCase(sum, "sum function");
 testCase(mSum, "mSum function");
 
 //Без задержки код выполняется на много быстрее
-
 
 // mSum(3,6);
 // mSum(3,6);
