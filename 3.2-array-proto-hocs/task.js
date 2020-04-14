@@ -36,10 +36,11 @@ function memorize (fn, limit) {
         console.log("Result from memory");
         return found.result;
       }
-      memory.push({args: args, result: fn(...args)});
+      const func = fn(...args);
+      memory.push({args: args, result: func});
       memory.length > limit ? memory.shift() : console.log("Memory is not full yet. Continue.");
       console.log(memory);
-      return fn(...args);
+      return func;
   }
 }
 
