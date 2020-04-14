@@ -3,7 +3,7 @@
 class AlarmClock {
     constructor() {
         this.alarmCollection = [];
-        this.timerId;
+        this.timerId = null;
     }
 
     addClock(time, callback, id) {
@@ -32,7 +32,7 @@ class AlarmClock {
     start() {
         function checkClock(obj) {
             if (obj.time === this.getCurrentFormattedTime()) {
-                callback();
+                obj.callback();
             }
         }
         
@@ -53,7 +53,7 @@ class AlarmClock {
     }
 
     printAlarms() {
-        this.alarmCollection.forEach(obj => console.log(`ID = ${obj.id}; Time = ${obj.time}`));
+        this.alarmCollection.forEach(obj => console.log(`Будильник №${obj.id} заведен на ${obj.time}`));
     }
 
     clearAlarms() {
@@ -66,24 +66,13 @@ function testCase() {
     const phoneAlarm = new AlarmClock();
     phoneAlarm.addClock("21:00", () => console.log("Time to call it a night"), 1);
     phoneAlarm.addClock("22:00", () => console.log("Time to call it a night"), 2);
-
+    phoneAlarm.addClock("13:00", () => console.log("Time to call it a night"), 3);
+    phoneAlarm.addClock("08:00", () => console.log("Time to call it a night"), 4);
  
     console.log(phoneAlarm.alarmCollection);
     phoneAlarm.printAlarms();
     phoneAlarm.removeClock(2);
     console.log(phoneAlarm.alarmCollection);
-    // phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime())
 }
 
 testCase();
-
-function getCurrentFormattedTime() {
-    const date = new Date();
-    return date.toLocaleTimeString([], {
-      hour12: false,  
-      hour: '2-digit',
-      minute:'2-digit'
-    });
-}
-
-console.log(getCurrentFormattedTime());
